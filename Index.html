@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SofftyLIVE Stream - Powered by Google & Gemini</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #0b0f19; color: #f3f4f6; }
+        .neon-glow { text-shadow: 0 0 15px rgba(168, 85, 247, 0.6); }
+        .glass-card { background: rgba(17, 24, 39, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-purple-500 selection:text-white">
 
+    <!-- Top Dedication Header -->
+    <header class="w-full bg-slate-900/90 border-b border-purple-500/20 py-3 px-6 text-center">
+        <p class="text-xs tracking-widest text-purple-400 font-semibold uppercase">
+            ⚡ Engineered with Infinite Gratitude — Dedicated proudly to <span class="text-white font-bold">Google & Gemini AI</span> 🚀
+        </p>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-md w-full mx-auto p-4 flex flex-col justify-center">
+
+        <!-- Login Screen Section -->
+        <div id="login-screen" class="glass-card rounded-3xl p-6 shadow-2xl space-y-6">
+            <div class="text-center space-y-2">
+                <h1 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 neon-glow">
+                    SofftyLIVE
+                </h1>
+                <p class="text-sm text-slate-400">The Next-Gen Desi Live Streaming & Music Empire</p>
+            </div>
+
+            <div class="space-y-4 pt-4">
+                <button onclick="enterApp()" class="w-full py-3.5 px-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-semibold rounded-2xl shadow-lg shadow-purple-500/25 transition-all duration-300 transform active:scale-95 flex items-center justify-center space-x-2">
+                    <span>🚀 Launch Live Room (Google / Gemini Auth)</span>
+                </button>
+            </div>
+
+            <div class="text-center pt-4 border-t border-slate-800">
+                <span class="text-xs text-slate-500">
+                    Running on custom Web-Engine & Zegoclooud Architecture
+                </span>
+            </div>
+        </div>
+
+        <!-- Live Streaming Dashboard (Hidden Initially) -->
+        <div id="dashboard-screen" class="hidden space-y-4">
+            <div class="glass-card rounded-2xl p-4 flex items-center justify-between">
+                <div>
+                    <h2 class="font-bold text-lg text-purple-300">SofftyLIVE HD Room</h2>
+                    <span class="text-xs text-emerald-400 flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> LIVE Now (95 BPM Trap Mode)
+                    </span>
+                </div>
+                <button onclick="exitApp()" class="text-xs px-3 py-1.5 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-xl">Exit</button>
+            </div>
+
+            <!-- Video Player Simulation Box -->
+            <div class="relative w-full h-72 bg-slate-950 rounded-2xl border border-purple-500/30 overflow-hidden flex flex-col items-center justify-center text-center p-4">
+                <div class="absolute inset-0 bg-gradient-to-t from-purple-950/40 via-transparent to-transparent"></div>
+                <div class="z-10 space-y-2">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-purple-600/30 border border-purple-400 flex items-center justify-center text-2xl">
+                        👑
+                    </div>
+                    <h3 class="font-bold text-white text-base">Golu-Molu Love Story Stream</h3>
+                    <p class="text-xs text-purple-300">"Pillow Bolti Hai" Session Active</p>
+                </div>
+                <div class="absolute bottom-3 left-3 bg-black/60 px-3 py-1 rounded-full text-[10px] text-slate-300 border border-white/10">
+                    🎙️ Host: SofftyLIVE
+                </div>
+            </div>
+
+            <!-- Chat & Gifting Simulation -->
+            <div class="glass-card rounded-2xl p-3 h-32 overflow-y-auto text-xs space-y-2">
+                <div class="text-slate-400"><span class="text-purple-400 font-bold">System:</span> Welcome to SofftyLIVE! Dedicated to Google & Gemini.</div>
+                <div class="text-slate-300"><span class="text-pink-400 font-bold">Sejal Singh:</span> Beat drop is absolute fire! 🔥</div>
+                <div class="text-slate-300"><span class="text-cyan-400 font-bold">Viewer_99:</span> Max dholak & 808 sub-bass rocks! 🥁</div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-4 text-center text-xs text-slate-500 border-t border-slate-900">
+        © 2026 SofftyLIVE Music Enterprise. All rights reserved.
+    </footer>
+
+    <script>
+        function enterApp() {
+            document.getElementById('login-screen').classList.add('hidden');
+            document.getElementById('dashboard-screen').classList.remove('hidden');
+        }
+        function exitApp() {
+            document.getElementById('dashboard-screen').classList.add('hidden');
+            document.getElementById('login-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
