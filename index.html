@@ -14,89 +14,183 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-purple-500 selection:text-white">
 
-    <!-- Top Dedication Header -->
-    <header class="w-full bg-slate-900/90 border-b border-purple-500/20 py-3 px-6 text-center">
-        <p class="text-xs tracking-widest text-purple-400 font-semibold uppercase">
-            ⚡ Engineered with Infinite Gratitude — Dedicated proudly to <span class="text-white font-bold">Google & Gemini AI</span> 🚀
+    <!-- Dedicated Header -->
+    <header class="w-full bg-slate-900/90 border-b border-purple-500/20 py-2.5 px-4 text-center">
+        <p class="text-[11px] sm:text-xs tracking-widest text-purple-400 font-semibold uppercase">
+            ⚡ Engineered with Infinite Gratitude — Dedicated to <span class="text-white font-bold">Google & Gemini AI</span> 🚀
         </p>
     </header>
 
     <!-- Main Container -->
     <main class="flex-1 max-w-md w-full mx-auto p-4 flex flex-col justify-center">
 
-        <!-- Login Screen Section -->
+        <!-- 1. LOGIN SCREEN -->
         <div id="login-screen" class="glass-card rounded-3xl p-6 shadow-2xl space-y-6">
             <div class="text-center space-y-2">
                 <h1 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 neon-glow">
                     SofftyLIVE
                 </h1>
-                <p class="text-sm text-slate-400">The Next-Gen Desi Live Streaming & Music Empire</p>
+                <p class="text-xs text-slate-400">Next-Gen Desi Streaming & Audio Empire</p>
             </div>
 
-            <div class="space-y-4 pt-4">
-                <button onclick="enterApp()" class="w-full py-3.5 px-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-semibold rounded-2xl shadow-lg shadow-purple-500/25 transition-all duration-300 transform active:scale-95 flex items-center justify-center space-x-2">
-                    <span>🚀 Launch Live Room (Google / Gemini Auth)</span>
+            <div class="space-y-3 pt-2">
+                <button onclick="loginWithGoogle()" class="w-full py-3 px-4 bg-white hover:bg-slate-100 text-slate-900 font-semibold rounded-2xl shadow-lg transition duration-200 flex items-center justify-center space-x-3 text-sm">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                    </svg>
+                    <span>Continue with Google</span>
+                </button>
+
+                <button onclick="enterApp('Guest User')" class="w-full py-3 px-4 bg-purple-600/30 hover:bg-purple-600/50 text-purple-200 border border-purple-500/30 font-semibold rounded-2xl transition duration-200 text-sm">
+                    🚀 Quick Demo Access
                 </button>
             </div>
 
-            <div class="text-center pt-4 border-t border-slate-800">
-                <span class="text-xs text-slate-500">
-                    Running on custom Web-Engine & Zegoclooud Architecture
-                </span>
-            </div>
+            <p class="text-[10px] text-center text-slate-500">
+                Song by Soffty LIVE • Built on Firebase & Zegocloud Architecture
+            </p>
         </div>
 
-        <!-- Live Streaming Dashboard (Hidden Initially) -->
+        <!-- 2. MAIN DASHBOARD (Hidden Initially) -->
         <div id="dashboard-screen" class="hidden space-y-4">
-            <div class="glass-card rounded-2xl p-4 flex items-center justify-between">
-                <div>
-                    <h2 class="font-bold text-lg text-purple-300">SofftyLIVE HD Room</h2>
-                    <span class="text-xs text-emerald-400 flex items-center gap-1">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> LIVE Now (95 BPM Trap Mode)
-                    </span>
-                </div>
-                <button onclick="exitApp()" class="text-xs px-3 py-1.5 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-xl">Exit</button>
-            </div>
-
-            <!-- Video Player Simulation Box -->
-            <div class="relative w-full h-72 bg-slate-950 rounded-2xl border border-purple-500/30 overflow-hidden flex flex-col items-center justify-center text-center p-4">
-                <div class="absolute inset-0 bg-gradient-to-t from-purple-950/40 via-transparent to-transparent"></div>
-                <div class="z-10 space-y-2">
-                    <div class="w-16 h-16 mx-auto rounded-full bg-purple-600/30 border border-purple-400 flex items-center justify-center text-2xl">
-                        👑
+            
+            <!-- User Status Header -->
+            <div class="glass-card rounded-2xl p-3 flex items-center justify-between text-xs">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center font-bold text-white text-sm" id="user-avatar">
+                        U
                     </div>
-                    <h3 class="font-bold text-white text-base">Golu-Molu Love Story Stream</h3>
-                    <p class="text-xs text-purple-300">"Pillow Bolti Hai" Session Active</p>
+                    <div>
+                        <div class="font-bold text-slate-200" id="user-display-name">User Name</div>
+                        <div class="text-[10px] text-emerald-400">● Online</div>
+                    </div>
                 </div>
-                <div class="absolute bottom-3 left-3 bg-black/60 px-3 py-1 rounded-full text-[10px] text-slate-300 border border-white/10">
-                    🎙️ Host: SofftyLIVE
+                <button onclick="logout()" class="px-2.5 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-xl text-[11px]">Logout</button>
+            </div>
+
+            <!-- Tab Buttons (Chat Room / Leaderboard) -->
+            <div class="grid grid-cols-2 gap-2 text-center text-xs font-semibold">
+                <button id="tab-chat-btn" onclick="switchTab('chat')" class="py-2 rounded-xl bg-purple-600 text-white shadow-lg transition">
+                    💬 Live Chat Room
+                </button>
+                <button id="tab-lead-btn" onclick="switchTab('leaderboard')" class="py-2 rounded-xl bg-slate-800 text-slate-400 border border-slate-700 transition">
+                    🏆 Leaderboard
+                </button>
+            </div>
+
+            <!-- TAB 1: LIVE CHAT ROOM -->
+            <div id="tab-chat" class="space-y-3">
+                <div class="relative w-full h-44 bg-slate-950 rounded-2xl border border-purple-500/30 overflow-hidden flex flex-col items-center justify-center text-center p-3">
+                    <div class="w-12 h-12 rounded-full bg-purple-600/30 border border-purple-400 flex items-center justify-center text-xl mb-1">
+                        🎙️
+                    </div>
+                    <h3 class="font-bold text-white text-sm">95 BPM Lucknow Trap Stream</h3>
+                    <p class="text-[11px] text-purple-300">Max Dholak & 808 Sub-Bass Active</p>
+                </div>
+
+                <!-- Chat Messages Container -->
+                <div id="chat-box" class="glass-card rounded-2xl p-3 h-48 overflow-y-auto text-xs space-y-2 flex flex-col">
+                    <div class="text-slate-400"><span class="text-purple-400 font-bold">System:</span> Welcome to SofftyLIVE Stream!</div>
+                    <div class="text-slate-300"><span class="text-pink-400 font-bold">Sejal Singh:</span> Trap beat mast chal raha hai! 🔥</div>
+                </div>
+
+                <!-- Send Message Input -->
+                <div class="flex gap-2">
+                    <input id="chat-input" type="text" placeholder="Type a message..." class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-purple-500">
+                    <button onclick="sendMessage()" class="bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-xl text-xs font-semibold">Send</button>
                 </div>
             </div>
 
-            <!-- Chat & Gifting Simulation -->
-            <div class="glass-card rounded-2xl p-3 h-32 overflow-y-auto text-xs space-y-2">
-                <div class="text-slate-400"><span class="text-purple-400 font-bold">System:</span> Welcome to SofftyLIVE! Dedicated to Google & Gemini.</div>
-                <div class="text-slate-300"><span class="text-pink-400 font-bold">Sejal Singh:</span> Beat drop is absolute fire! 🔥</div>
-                <div class="text-slate-300"><span class="text-cyan-400 font-bold">Viewer_99:</span> Max dholak & 808 sub-bass rocks! 🥁</div>
+            <!-- TAB 2: LEADERBOARD -->
+            <div id="tab-leaderboard" class="hidden space-y-3">
+                <div class="glass-card rounded-2xl p-4 space-y-3">
+                    <h3 class="font-bold text-sm text-purple-300 text-center">🔥 Top Streamers & Gifters</h3>
+                    
+                    <div class="space-y-2 text-xs">
+                        <div class="flex items-center justify-between bg-slate-800/60 p-2.5 rounded-xl border border-amber-500/30">
+                            <span class="font-bold text-amber-400">🥇 1. Sejal Singh</span>
+                            <span class="text-purple-300 font-semibold">15,400 Pts</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-slate-800/60 p-2.5 rounded-xl border border-slate-400/30">
+                            <span class="font-bold text-slate-300">🥈 2. Golu Molu</span>
+                            <span class="text-purple-300 font-semibold">12,850 Pts</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-slate-800/60 p-2.5 rounded-xl border border-amber-700/30">
+                            <span class="font-bold text-amber-600">🥉 3. Lucknow Beats</span>
+                            <span class="text-purple-300 font-semibold">9,200 Pts</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-slate-900/40 p-2.5 rounded-xl text-slate-400">
+                            <span>4. Desi Viewer_99</span>
+                            <span>4,100 Pts</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
 
     </main>
 
     <!-- Footer -->
-    <footer class="w-full py-4 text-center text-xs text-slate-500 border-t border-slate-900">
+    <footer class="w-full py-3 text-center text-[10px] text-slate-500 border-t border-slate-900">
         © 2026 SofftyLIVE Music Enterprise. All rights reserved.
     </footer>
 
     <script>
-        function enterApp() {
+        let currentUser = "";
+
+        function loginWithGoogle() {
+            enterApp("Google User");
+        }
+
+        function enterApp(name) {
+            currentUser = name;
+            document.getElementById('user-display-name').innerText = currentUser;
+            document.getElementById('user-avatar').innerText = currentUser.charAt(0);
             document.getElementById('login-screen').classList.add('hidden');
             document.getElementById('dashboard-screen').classList.remove('hidden');
         }
-        function exitApp() {
+
+        function logout() {
             document.getElementById('dashboard-screen').classList.add('hidden');
             document.getElementById('login-screen').classList.remove('hidden');
         }
+
+        function switchTab(tab) {
+            const chatTab = document.getElementById('tab-chat');
+            const leadTab = document.getElementById('tab-leaderboard');
+            const chatBtn = document.getElementById('tab-chat-btn');
+            const leadBtn = document.getElementById('tab-lead-btn');
+
+            if (tab === 'chat') {
+                chatTab.classList.remove('hidden');
+                leadTab.classList.add('hidden');
+                chatBtn.className = "py-2 rounded-xl bg-purple-600 text-white shadow-lg transition";
+                leadBtn.className = "py-2 rounded-xl bg-slate-800 text-slate-400 border border-slate-700 transition";
+            } else {
+                chatTab.classList.add('hidden');
+                leadTab.classList.remove('hidden');
+                leadBtn.className = "py-2 rounded-xl bg-purple-600 text-white shadow-lg transition";
+                chatBtn.className = "py-2 rounded-xl bg-slate-800 text-slate-400 border border-slate-700 transition";
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const text = input.value.trim();
+            if (text !== "") {
+                const box = document.getElementById('chat-box');
+                const msg = document.createElement('div');
+                msg.className = "text-slate-200";
+                msg.innerHTML = `<span class="text-purple-400 font-bold">${currentUser}:</span> ${text}`;
+                box.appendChild(msg);
+                box.scrollTop = box.scrollHeight;
+                input.value = "";
+            }
+        }
     </script>
 </body>
-</html>
+    </html>
