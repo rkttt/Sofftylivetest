@@ -364,5 +364,49 @@
             }, 1500);
         }
     </script>
+<script>
+    // Automatically inject SofftyLIVE Wallet Bar at the very top of the page
+    document.addEventListener("DOMContentLoaded", function() {
+        if (!document.getElementById("soffty-wallet-bar")) {
+            const walletBar = document.createElement("div");
+            walletBar.id = "soffty-wallet-bar";
+            walletBar.style.cssText = "display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; background: #121212; color: #fff; border-bottom: 2px solid #ff0055; position: sticky; top: 0; z-index: 9999;";
+            walletBar.innerHTML = `
+                <div style="font-weight: bold; font-size: 1.1rem; color: #ff0055;">SofftyLIVE</div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="background: #222; padding: 5px 12px; border-radius: 20px; border: 1px solid #ffd700; color: #ffd700; font-weight: bold;">
+                        ✨ <span id="user-coins">1000</span> Gemini
+                    </div>
+                    <button onclick="openRechargeModal()" style="background: linear-gradient(45deg, #ff0055, #ff5500); border: none; color: white; padding: 6px 14px; border-radius: 20px; font-weight: bold; cursor: pointer;">
+                        + Top Up
+                    </button>
+                </div>
+            `;
+            document.body.prepend(walletBar);
+        }
+    });
+
+    // Wallet Logic
+    let userWallet = { coins: 1000 };
+
+    function updateWalletUI() {
+        const coinSpan = document.getElementById('user-coins');
+        if (coinSpan) coinSpan.innerText = userWallet.coins;
+    }
+
+    function sendGift(giftName, giftCost) {
+        if (userWallet.coins >= giftCost) {
+            userWallet.coins -= giftCost;
+            updateWalletUI();
+            alert(`🔥 ${giftName} Sent! Remaining Gemini Coins: ${userWallet.coins}`);
+        } else {
+            alert("⚠️ Insufficient Gemini Coins! Please Top-Up your wallet.");
+        }
+    }
+
+    function openRechargeModal() {
+        alert("💳 Recharge Gateway Opening... (UPI / Payment Demo Coming Next)");
+    }
+</script>
 </body>
 </html>
