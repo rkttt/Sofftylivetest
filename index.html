@@ -51,7 +51,6 @@
             height: 90px;
             border-radius: 50%;
             border: 3px solid #ffd700;
-            object-fit: cover;
             margin: 0 auto 15px auto;
             background: #2a2a35;
             display: flex;
@@ -102,11 +101,6 @@
             font-size: 1rem;
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(255, 0, 85, 0.4);
-            transition: transform 0.2s;
-        }
-
-        .btn-login:hover {
-            transform: scale(1.02);
         }
 
         /* Top Wallet Bar */
@@ -121,15 +115,12 @@
             position: sticky;
             top: 0;
             z-index: 9999;
-            backdrop-filter: blur(10px);
         }
 
         .brand-logo {
             font-weight: 800;
             font-size: 1.4rem;
             color: #ff0055;
-            letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
         }
 
         .wallet-info {
@@ -146,7 +137,6 @@
             color: #ffd700;
             font-weight: bold;
             font-size: 0.95rem;
-            box-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
         }
 
         .btn-topup {
@@ -157,12 +147,6 @@
             border-radius: 20px;
             font-weight: bold;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn-topup:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 12px rgba(255, 0, 85, 0.6);
         }
 
         /* Main Container */
@@ -176,10 +160,8 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
 
-        /* Video / Camera Section */
         .stream-viewport {
             position: relative;
             width: 100%;
@@ -213,22 +195,6 @@
             border-radius: 12px;
             font-size: 0.8rem;
             font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            backdrop-filter: blur(4px);
-        }
-
-        .live-dot {
-            width: 8px;
-            height: 8px;
-            background: #fff;
-            border-radius: 50%;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0.3; }
         }
 
         .viewer-count {
@@ -240,7 +206,6 @@
             border-radius: 12px;
             font-size: 0.8rem;
             color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .stream-controls {
@@ -253,7 +218,6 @@
             background: rgba(0,0,0,0.6);
             padding: 6px 12px;
             border-radius: 25px;
-            backdrop-filter: blur(4px);
         }
 
         .btn-control {
@@ -272,7 +236,6 @@
             border-color: #ff0055;
         }
 
-        /* Chat Section */
         .chat-container {
             height: 140px;
             overflow-y: auto;
@@ -288,7 +251,6 @@
         .chat-message {
             font-size: 0.85rem;
             line-height: 1.3;
-            word-wrap: break-word;
         }
 
         .chat-username {
@@ -309,7 +271,6 @@
             font-weight: 600;
         }
 
-        /* Gifting Section */
         .gift-panel {
             padding: 15px;
             background: #141419;
@@ -342,13 +303,10 @@
             flex-direction: column;
             align-items: center;
             cursor: pointer;
-            transition: all 0.2s;
         }
 
         .gift-card:hover {
             border-color: #ff0055;
-            transform: translateY(-2px);
-            background: #262638;
         }
 
         .gift-emoji {
@@ -369,7 +327,6 @@
             margin-top: 2px;
         }
 
-        /* Floating Gift Animation overlay */
         .gift-animation-layer {
             position: absolute;
             top: 0;
@@ -390,17 +347,10 @@
         }
 
         @keyframes floatUp {
-            0% {
-                opacity: 1;
-                transform: translate(-50%, 0) scale(0.5);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%, -240px) scale(1);
-            }
+            0% { opacity: 1; transform: translate(-50%, 0) scale(0.5); }
+            100% { opacity: 0; transform: translate(-50%, -240px) scale(1); }
         }
 
-        /* Recharge Modal */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -429,10 +379,6 @@
             font-size: 1.2rem;
             margin-bottom: 15px;
             font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
 
         .recharge-option {
@@ -445,10 +391,6 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-        }
-
-        .recharge-option:hover {
-            border-color: #ffd700;
         }
 
         .btn-close-modal {
@@ -464,72 +406,53 @@
 </head>
 <body>
 
-    <!-- Golu Molu Login / Entry Screen -->
+    <!-- Login Screen -->
     <div id="login-screen">
         <div class="login-card">
-            <!-- Golu Molu Avatar / Theme Emoji -->
             <div class="golu-avatar">👑</div>
-            <div class="login-title">SofftyLIVE Arena</div>
-            <div class="login-subtitle">Enter your name to join live stream & wallet</div>
-            
-            <input type="text" id="username-input" class="login-input" placeholder="Enter your name (e.g. Golu Molu)" autocomplete="off">
+            <div class="login-title">SofftyLIVE</div>
+            <div class="login-subtitle">Enter your name to join stream</div>
+            <input type="text" id="username-input" class="login-input" placeholder="Your Name" autocomplete="off">
             <button class="btn-login" onclick="handleLogin()">Enter Stream 🚀</button>
         </div>
     </div>
 
-    <!-- Sticky Wallet Header -->
+    <!-- Wallet Header -->
     <div id="soffty-wallet-bar">
         <div class="brand-logo">SofftyLIVE</div>
         <div class="wallet-info">
-            <div class="coin-badge">
-                ✨ <span id="user-coins">1000</span> Gemini
-            </div>
+            <div class="coin-badge">✨ <span id="user-coins">1000</span> Gemini</div>
             <button class="btn-topup" onclick="openRechargeModal()">+ Top Up</button>
         </div>
     </div>
 
-    <!-- Main Live Stream Application -->
+    <!-- Main Container -->
     <div class="app-container">
-        
-        <!-- Live Video Viewport -->
         <div class="stream-viewport">
             <div class="gift-animation-layer" id="gift-animation-layer"></div>
-            
-            <div class="live-badge">
-                <div class="live-dot"></div> LIVE
-            </div>
+            <div class="live-badge">🔴 LIVE</div>
             <div class="viewer-count">👁️ <span id="viewer-count">1,248</span></div>
 
-            <!-- Video element for real camera -->
             <video id="localVideo" autoplay playsinline style="display: none;"></video>
-
-            <!-- Default Placeholder when camera is off -->
             <div class="placeholder-stream" id="placeholder-stream">
                 <div style="font-size: 3rem; margin-bottom: 10px;">🎥</div>
-                <div style="font-weight: bold; color: #fff;">SofftyLIVE Dangal</div>
+                <div style="font-weight: bold; color: #fff;">SofftyLIVE Arena</div>
                 <div style="font-size: 0.85rem; color: #aaa; margin-top: 4px;">Click "Go Live" to start camera</div>
             </div>
 
-            <!-- Controls overlay -->
             <div class="stream-controls">
                 <button class="btn-control" id="btn-toggle-cam" onclick="toggleCamera()">🎥 Go Live</button>
                 <button class="btn-control" id="btn-toggle-mic" onclick="toggleMic()" style="display:none;">🎙️ Mic On</button>
             </div>
         </div>
 
-        <!-- Real-time Live Chat Feed -->
         <div class="chat-container" id="chat-container">
             <div class="chat-message">
-                <span class="chat-username" style="color: #ff0055;">Golu:</span>
-                <span class="chat-text">System hila denge bhai! 🔥</span>
-            </div>
-            <div class="chat-message">
-                <span class="chat-username" style="color: #00ffcc;">Molu:</span>
-                <span class="chat-text">Welcome to SofftyLIVE! ✨</span>
+                <span class="chat-username" style="color: #ff0055;">System:</span>
+                <span class="chat-text">Welcome to SofftyLIVE! Type a message or send gifts.</span>
             </div>
         </div>
 
-        <!-- Gifting Panel -->
         <div class="gift-panel">
             <div class="gift-panel-title">Send Gemini Gifts</div>
             <div class="gift-grid">
@@ -557,49 +480,33 @@
         <div class="modal-content">
             <div class="modal-title">💎 Top Up Gemini Coins</div>
             <div class="recharge-option" onclick="buyCoins(500, 50)">
-                <span>500 Gemini Coins</span>
-                <span style="color:#ffd700; font-weight:bold;">₹50</span>
+                <span>500 Gemini Coins</span><span style="color:#ffd700; font-weight:bold;">₹50</span>
             </div>
             <div class="recharge-option" onclick="buyCoins(1200, 100)">
-                <span>1200 Gemini Coins</span>
-                <span style="color:#ffd700; font-weight:bold;">₹100</span>
-            </div>
-            <div class="recharge-option" onclick="buyCoins(3000, 250)">
-                <span>3000 Gemini Coins</span>
-                <span style="color:#ffd700; font-weight:bold;">₹250</span>
+                <span>1200 Gemini Coins</span><span style="color:#ffd700; font-weight:bold;">₹100</span>
             </div>
             <button class="btn-close-modal" onclick="closeRechargeModal()">Cancel</button>
         </div>
     </div>
 
     <script>
-        // State Management
         let currentUser = "Guest";
         let userWallet = { coins: 1000 };
         let localStream = null;
         let isCamOn = false;
         let isMicOn = true;
 
-        // Login Handler
         function handleLogin() {
             const inputVal = document.getElementById('username-input').value.trim();
-            if (inputVal) {
-                currentUser = inputVal;
-            } else {
-                currentUser = "Golu Molu";
-            }
-            // Hide login screen
+            currentUser = inputVal !== "" ? inputVal : "Golu Molu";
             document.getElementById('login-screen').style.display = 'none';
-            addChatMessage('System', `Welcome ${currentUser} to SofftyLIVE Arena! 🔥`, '#ffd700');
+            addChatMessage('System', `Welcome ${currentUser} to SofftyLIVE! 🔥`, '#ffd700');
         }
 
-        // Wallet Functions
         function updateWalletUI() {
-            const coinSpan = document.getElementById('user-coins');
-            if (coinSpan) coinSpan.innerText = userWallet.coins;
+            document.getElementById('user-coins').innerText = userWallet.coins;
         }
 
-        // Camera & Mic Handlers
         async function toggleCamera() {
             const videoElem = document.getElementById('localVideo');
             const placeholder = document.getElementById('placeholder-stream');
@@ -616,40 +523,71 @@
                     btnCam.classList.add('active');
                     btnMic.style.display = 'inline-block';
                     isCamOn = true;
-                    
                     addChatMessage('System', `${currentUser} started the live stream!`, '#00ffcc');
                 } catch (err) {
-                    alert('Camera access permission denied or unavailable!');
-                    console.error(err);
+                    alert('Camera access permission denied!');
                 }
             } else {
-                if (localStream) {
-                    localStream.getTracks().forEach(track => track.stop());
-                }
+                if (localStream) localStream.getTracks().forEach(t => t.stop());
                 videoElem.style.display = 'none';
                 placeholder.style.display = 'block';
                 btnCam.innerText = '🎥 Go Live';
                 btnCam.classList.remove('active');
                 btnMic.style.display = 'none';
                 isCamOn = false;
-                
                 addChatMessage('System', 'Stream ended.', '#ff0055');
             }
         }
 
         function toggleMic() {
             if (localStream) {
-                const audioTrack = localStream.getAudioTracks()[0];
-                if (audioTrack) {
-                    isMicOn = !isMicOn;
-                    audioTrack.enabled = isMicOn;
-                    const btnMic = document.getElementById('btn-toggle-mic');
-                    btnMic.innerText = isMicOn ? '🎙️ Mic On' : '🔇 Muted';
-                }
+                isMicOn = !isMicOn;
+                localStream.getAudioTracks()[0].enabled = isMicOn;
+                document.getElementById('btn-toggle-mic').innerText = isMicOn ? '🎙️ Mic On' : '🔇 Muted';
             }
         }
 
-        // Gifting Engine
-        function sendGift(giftName, giftCost, emoji) {
-            if (userWallet.coins >= giftCost) {
-                userWallet.coins -= giftCost;
+        function sendGift(giftName, cost, emoji) {
+            if (userWallet.coins >= cost) {
+                userWallet.coins -= cost;
+                updateWalletUI();
+                
+                // Floating Emoji Animation
+                const layer = document.getElementById('gift-animation-layer');
+                const f = document.createElement('div');
+                f.className = 'floating-gift';
+                f.innerText = emoji;
+                f.style.left = `calc(50% + ${(Math.random() * 80 - 40)}px)`;
+                layer.appendChild(f);
+                setTimeout(() => f.remove(), 2000);
+
+                // Chat Alert
+                const chatContainer = document.getElementById('chat-container');
+                const msg = document.createElement('div');
+                msg.className = 'chat-message chat-gift-alert';
+                msg.innerHTML = `🎁 <b>${currentUser}</b> sent <b>${giftName}</b> (${cost} Coins)!`;
+                chatContainer.appendChild(msg);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            } else {
+                alert('⚠️ Insufficient Gemini Coins! Top-Up required.');
+                openRechargeModal();
+            }
+        }
+
+        function openRechargeModal() {
+            document.getElementById('rechargeModal').style.display = 'flex';
+        }
+
+        function closeRechargeModal() {
+            document.getElementById('rechargeModal').style.display = 'none';
+        }
+
+        function buyCoins(coins, price) {
+            userWallet.coins += coins;
+            updateWalletUI();
+            alert(`🎉 Added ${coins} coins for ₹${price}!`);
+            closeRechargeModal();
+        }
+    </script>
+</body>
+</html>
