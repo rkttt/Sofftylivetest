@@ -16,7 +16,7 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-purple-500 selection:text-white">
 
-    <!-- Dedicated Header -->
+    <!-- Header -->
     <header class="w-full bg-slate-950 border-b border-purple-500/30 py-2 px-4 text-center">
         <p class="text-[11px] tracking-widest text-purple-400 font-bold uppercase">
             ⚡ Soffty LIVE • Mafia Shootout & High-Stakes Gifting Arena 🚀
@@ -36,7 +36,7 @@
             </div>
 
             <div class="space-y-3 pt-2">
-                <button onclick="enterApp('Google VIP User')" class="w-full py-3 px-4 bg-white hover:bg-slate-100 text-slate-900 font-semibold rounded-2xl shadow-lg transition duration-200 flex items-center justify-center space-x-3 text-sm">
+                <button type="button" onclick="enterApp('Google VIP User')" class="w-full py-3 px-4 bg-white hover:bg-slate-100 text-slate-900 font-semibold rounded-2xl shadow-lg transition duration-200 flex items-center justify-center space-x-3 text-sm">
                     <svg class="w-5 h-5" viewBox="0 0 24 24">
                         <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                         <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -46,7 +46,7 @@
                     <span>Continue with Google</span>
                 </button>
 
-                <button onclick="enterApp('Mafia Boss')" class="w-full py-3 px-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white font-semibold rounded-2xl shadow-lg transition duration-200 text-sm">
+                <button type="button" onclick="enterApp('Mafia Boss')" class="w-full py-3 px-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white font-semibold rounded-2xl shadow-lg transition duration-200 text-sm">
                     🔥 Enter Shootout Arena (Demo)
                 </button>
             </div>
@@ -56,8 +56,8 @@
             </p>
         </div>
 
-        <!-- 2. MAIN DASHBOARD (Hidden Initially) -->
-        <div id="dashboard-screen" class="hidden space-y-3">
+        <!-- 2. MAIN DASHBOARD -->
+        <div id="dashboard-screen" style="display: none;" class="space-y-3">
             
             <!-- Top Status Bar -->
             <div class="glass-card rounded-2xl p-2.5 flex items-center justify-between text-xs">
@@ -72,27 +72,25 @@
                 </div>
                 <div class="flex items-center space-x-2">
                     <span class="text-amber-400 font-extrabold text-xs bg-amber-500/10 px-2 py-1 rounded-lg border border-amber-500/30" id="user-points">⭐ 2,500 Pts</span>
-                    <button onclick="logout()" class="px-2 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-lg text-[10px]">Exit</button>
+                    <button type="button" onclick="logout()" class="px-2 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-lg text-[10px]">Exit</button>
                 </div>
             </div>
 
             <!-- Tab Navigation -->
             <div class="grid grid-cols-3 gap-1 text-center text-xs font-semibold">
-                <button id="tab-shootout-btn" onclick="switchTab('shootout')" class="py-2 rounded-xl bg-purple-600 text-white shadow-lg transition">
+                <button type="button" id="tab-shootout-btn" onclick="switchTab('shootout')" class="py-2 rounded-xl bg-purple-600 text-white shadow-lg transition">
                     ⚔️ Shootout War
                 </button>
-                <button id="tab-music-btn" onclick="switchTab('music')" class="py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 transition">
+                <button type="button" id="tab-music-btn" onclick="switchTab('music')" class="py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 transition">
                     🎵 Music Studio
                 </button>
-                <button id="tab-lead-btn" onclick="switchTab('leaderboard')" class="py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 transition">
+                <button type="button" id="tab-lead-btn" onclick="switchTab('leaderboard')" class="py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 transition">
                     🏆 Whales Rank
                 </button>
             </div>
 
             <!-- TAB 1: MAFIA SHOOTOUT BATTLE STAGE -->
             <div id="tab-shootout" class="space-y-3">
-                
-                <!-- Shootout Header & Blind Timer -->
                 <div class="glass-card rounded-2xl p-2.5 border border-purple-500/40 bg-gradient-to-r from-purple-950/80 to-slate-900/90 flex items-center justify-between">
                     <div>
                         <div class="text-[10px] uppercase tracking-wider text-pink-400 font-extrabold">🔥 Mafia Shootout Battle</div>
@@ -104,10 +102,8 @@
                     </div>
                 </div>
 
-                <!-- Split Screen Host Arena (Blind Scores Hidden until End) -->
+                <!-- Split Screen Host Arena -->
                 <div class="grid grid-cols-2 gap-2">
-                    
-                    <!-- Host A -->
                     <div class="relative h-40 bg-slate-950 rounded-2xl border border-purple-500/40 overflow-hidden flex flex-col items-center justify-center p-2">
                         <div class="absolute top-2 left-2 bg-purple-600/80 text-white text-[9px] px-2 py-0.5 rounded font-bold">
                             Host A: Sejal
@@ -121,12 +117,11 @@
                                 🔒 Score Hidden
                             </div>
                         </div>
-                        <button onclick="supportHost('A')" class="absolute bottom-2 inset-x-2 bg-purple-600 hover:bg-purple-500 text-white text-[10px] font-bold py-1.5 rounded-lg shadow">
+                        <button type="button" onclick="supportHost('A')" class="absolute bottom-2 inset-x-2 bg-purple-600 hover:bg-purple-500 text-white text-[10px] font-bold py-1.5 rounded-lg shadow">
                             ⚡ Support Host A
                         </button>
                     </div>
 
-                    <!-- Host B -->
                     <div class="relative h-40 bg-slate-950 rounded-2xl border border-pink-500/40 overflow-hidden flex flex-col items-center justify-center p-2">
                         <div class="absolute top-2 left-2 bg-pink-600/80 text-white text-[9px] px-2 py-0.5 rounded font-bold">
                             Host B: Golu
@@ -140,48 +135,46 @@
                                 🔒 Score Hidden
                             </div>
                         </div>
-                        <button onclick="supportHost('B')" class="absolute bottom-2 inset-x-2 bg-pink-600 hover:bg-pink-500 text-white text-[10px] font-bold py-1.5 rounded-lg shadow">
+                        <button type="button" onclick="supportHost('B')" class="absolute bottom-2 inset-x-2 bg-pink-600 hover:bg-pink-500 text-white text-[10px] font-bold py-1.5 rounded-lg shadow">
                             🔥 Support Host B
                         </button>
                     </div>
-
                 </div>
 
-                <!-- Live Chat & Attack Feed -->
+                <!-- Live Feed -->
                 <div id="chat-box" class="glass-card rounded-2xl p-3 h-28 overflow-y-auto text-xs space-y-1.5 flex flex-col">
                     <div class="text-slate-400"><span class="text-purple-400 font-bold">Mafia System:</span> Shootout Battle started! Gifter whales active. No scores visible until timer ends! 🔥</div>
                 </div>
 
-                <!-- Heavy Gifter Power Panel -->
+                <!-- Gifter Panel -->
                 <div class="glass-card rounded-xl p-2.5 grid grid-cols-3 gap-2">
-                    <button onclick="sendMafiaGift('⚡ Sub-Bass Strike', 500)" class="bg-purple-950/60 hover:bg-purple-900/60 p-2 rounded-xl border border-purple-500/40 text-center">
+                    <button type="button" onclick="sendMafiaGift('⚡ Sub-Bass Strike', 500)" class="bg-purple-950/60 hover:bg-purple-900/60 p-2 rounded-xl border border-purple-500/40 text-center">
                         <div class="text-[11px] font-bold text-purple-300">💥 500 Pts</div>
                         <div class="text-[9px] text-slate-400">Sub-Bass Bomb</div>
                     </button>
-                    <button onclick="sendMafiaGift('🪘 Lucknow Dholak', 1000)" class="bg-pink-950/60 hover:bg-pink-900/60 p-2 rounded-xl border border-pink-500/40 text-center">
+                    <button type="button" onclick="sendMafiaGift('🪘 Lucknow Dholak', 1000)" class="bg-pink-950/60 hover:bg-pink-900/60 p-2 rounded-xl border border-pink-500/40 text-center">
                         <div class="text-[11px] font-bold text-pink-300">🔥 1000 Pts</div>
                         <div class="text-[9px] text-slate-400">Dholak Storm</div>
                     </button>
-                    <button onclick="sendMafiaGift('👑 Mafia Crown', 2500)" class="bg-amber-950/60 hover:bg-amber-900/60 p-2 rounded-xl border border-amber-500/40 text-center">
+                    <button type="button" onclick="sendMafiaGift('👑 Mafia Crown', 2500)" class="bg-amber-950/60 hover:bg-amber-900/60 p-2 rounded-xl border border-amber-500/40 text-center">
                         <div class="text-[11px] font-bold text-amber-300">👑 2500 Pts</div>
                         <div class="text-[9px] text-slate-400">Royal Takeover</div>
                     </button>
                 </div>
-
             </div>
 
-            <!-- TAB 2: MUSIC STUDIO & SOUNDBOARD -->
-            <div id="tab-music" class="hidden space-y-3">
+            <!-- TAB 2: MUSIC STUDIO -->
+            <div id="tab-music" style="display: none;" class="space-y-3">
                 <div class="glass-card rounded-2xl p-4 space-y-3">
                     <h3 class="font-bold text-sm text-purple-300 text-center">🎵 95 BPM Soundboard & Beats</h3>
                     <p class="text-[11px] text-slate-400 text-center">Lucknow Trap & Haryanvi Fusion Engine</p>
 
                     <div class="grid grid-cols-2 gap-2 text-xs">
-                        <button onclick="playSound('808')" class="p-3 bg-purple-950/60 border border-purple-500/40 rounded-xl text-left hover:bg-purple-900/60">
+                        <button type="button" onclick="playSound('808')" class="p-3 bg-purple-950/60 border border-purple-500/40 rounded-xl text-left hover:bg-purple-900/60">
                             <div class="font-bold text-purple-300">💥 Sub-Bass Drop</div>
                             <div class="text-[10px] text-slate-400">95 BPM Deep 808</div>
                         </button>
-                        <button onclick="playSound('dholak')" class="p-3 bg-pink-950/60 border border-pink-500/40 rounded-xl text-left hover:bg-pink-900/60">
+                        <button type="button" onclick="playSound('dholak')" class="p-3 bg-pink-950/60 border border-pink-500/40 rounded-xl text-left hover:bg-pink-900/60">
                             <div class="font-bold text-pink-300">🪘 Lucknow Dholak</div>
                             <div class="text-[10px] text-slate-400">Max Rhythm Roll</div>
                         </button>
@@ -193,7 +186,7 @@
             </div>
 
             <!-- TAB 3: LEADERBOARD -->
-            <div id="tab-leaderboard" class="hidden space-y-3">
+            <div id="tab-leaderboard" style="display: none;" class="space-y-3">
                 <div class="glass-card rounded-2xl p-4 space-y-3">
                     <h3 class="font-bold text-sm text-purple-300 text-center">🏆 Top Mafia Whales & Gifters</h3>
                     <div class="space-y-2 text-xs">
@@ -226,7 +219,6 @@
         let battleActive = true;
         let timeLeft = 90;
 
-        // Timer countdown for Shootout Battle
         setInterval(() => {
             if (battleActive && timeLeft > 0) {
                 timeLeft--;
@@ -247,13 +239,15 @@
             currentUser = name;
             document.getElementById('user-display-name').innerText = currentUser;
             document.getElementById('user-avatar').innerText = currentUser.charAt(0);
-            document.getElementById('login-screen').classList.add('hidden');
-            document.getElementById('dashboard-screen').classList.remove('hidden');
+            
+            // Direct style display override
+            document.getElementById('login-screen').style.display = 'none';
+            document.getElementById('dashboard-screen').style.display = 'block';
         }
 
         function logout() {
-            document.getElementById('dashboard-screen').classList.add('hidden');
-            document.getElementById('login-screen').classList.remove('hidden');
+            document.getElementById('dashboard-screen').style.display = 'none';
+            document.getElementById('login-screen').style.display = 'block';
         }
 
         function switchTab(tab) {
@@ -265,22 +259,22 @@
             const musicBtn = document.getElementById('tab-music-btn');
             const leadBtn = document.getElementById('tab-lead-btn');
 
-            shootoutTab.classList.add('hidden');
-            musicTab.classList.add('hidden');
-            leadTab.classList.add('hidden');
+            shootoutTab.style.display = 'none';
+            musicTab.style.display = 'none';
+            leadTab.style.display = 'none';
 
             shootoutBtn.className = "py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 transition";
             musicBtn.className = "py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 transition";
             leadBtn.className = "py-2 rounded-xl bg-slate-900 text-slate-400 border border-slate-800 transition";
 
             if (tab === 'shootout') {
-                shootoutTab.classList.remove('hidden');
+                shootoutTab.style.display = 'block';
                 shootoutBtn.className = "py-2 rounded-xl bg-purple-600 text-white shadow-lg transition";
             } else if (tab === 'music') {
-                musicTab.classList.remove('hidden');
+                musicTab.style.display = 'block';
                 musicBtn.className = "py-2 rounded-xl bg-purple-600 text-white shadow-lg transition";
             } else {
-                leadTab.classList.remove('hidden');
+                leadTab.style.display = 'block';
                 leadBtn.className = "py-2 rounded-xl bg-purple-600 text-white shadow-lg transition";
             }
         }
