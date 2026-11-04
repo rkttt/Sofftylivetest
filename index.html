@@ -103,7 +103,7 @@
             box-shadow: 0 5px 15px rgba(255, 0, 85, 0.4);
         }
 
-        /* Top Wallet Bar */
+        /* Wallet Header */
         #soffty-wallet-bar {
             display: flex;
             justify-content: space-between;
@@ -495,6 +495,15 @@
         let localStream = null;
         let isCamOn = false;
         let isMicOn = true;
+
+        function addChatMessage(username, text, color = '#ff0055') {
+            const chatContainer = document.getElementById('chat-container');
+            const msg = document.createElement('div');
+            msg.className = 'chat-message';
+            msg.innerHTML = `<span class="chat-username" style="color: ${color};">${username}:</span><span class="chat-text">${text}</span>`;
+            chatContainer.appendChild(msg);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
 
         function handleLogin() {
             const inputVal = document.getElementById('username-input').value.trim();
